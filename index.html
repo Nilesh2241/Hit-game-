@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            
+        }
+        
+        body{
+            background-color: rgb(131, 128, 123);
+        }
+        section{
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+           
+        }
+        
+        section span{
+            position: absolute;
+            bottom:  -50px;
+            background: transparent;
+            border-radius: 50%;
+            pointer-events: none;
+            box-shadow: inset 0 0 10px rgb(255, 255, 255,0.5);
+            animation: animate 4s linear infinite;
+        }
+        section span1{
+            position: absolute;
+            bottom:  -50px;
+            background: transparent;
+            border-radius: 50%;
+            pointer-events: none;
+            box-shadow: inset 0 0 10px rgba(17, 29, 132, 0.8);
+            animation: animate 4s linear infinite;
+        }
+        section span::before{
+            content:'' ;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform: translate(-70%,-70%);
+            background: radial-gradient(rgb(208, 210, 215),rgb(50, 77, 144),rgb(45, 248, 0),transparent);
+            border-radius: 50%;
+        }
+        section span1::before{
+            content:'' ;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform: translate(-70%,-70%);
+            background: radial-gradient(rgb(0, 255, 8),rgb(255, 255, 255),rgb(18, 19, 18),rgb(73, 50, 91),transparent);
+            border-radius: 50%;
+        }
+        @keyframes animate{
+            0%{
+                transform:translateY(0%);
+                opacity: 1;
+            }
+            90%{
+              
+                opacity: 1;
+            }
+            100%{
+                transform:translateY(-1200%);
+                opacity: 1;
+            }
+        }
+        div{
+            text-align:center ;
+            width: 100%;
+            padding:8% 0 0 2%;
+        }
+        h1{
+            font-size: 40px;
+            color: aliceblue;
+            text-shadow: 7px 7px 7px blue; 
+        }
+        div button{
+            margin: 10% 0 0 7% ;
+        }
+        button{
+            width:60%;
+            border-radius: 20px;
+            background-color: rgb(125, 230, 130);
+            box-shadow: 7px 7px 6px blue;
+            border: none;
+            font-weight: bolder;
+        }
+        .j{
+            font-size: 35px;
+        }
+        main{
+            width:100%;
+            background: linear-gradient(-45deg,red,rgb(115, 215, 76),red,rgb(151, 166, 225));
+            text-align: center;
+            padding-top: 15%;
+            font-size: 300%;
+            font-weight: bolder;
+            text-shadow: 7px 1px 7px rgb(255, 255, 255);
+            
+        }
+
+    </style>
+</head>
+<body>
+
+ <section>
+    <div class="n1">
+   <h1> Choose your level <br>
+    and start to the play</h1>
+    <a href="game.html"> <button class="j"> Easy</button></a>
+    <a href="game2.html"><button  class="j"> Medium</button></a>
+     <a href="game3.html"><button  class="j" > Hard</button></a>
+</div>
+<main class="p">
+     Welcome  <br> <br>
+    To Bubble Game 
+     <br> <br> Hit The Red ball
+     
+</main>
+ </section> 
+ 
+ <script>
+    function createBubble(){
+        const section= document.querySelector('section')
+        const createElement= document.createElement('span')
+        const createElement1= document.createElement('span1')
+         var size= Math.random() * 50;
+         createElement.style.width= size + 'px';
+         createElement.style.height= size + 'px';
+         createElement.style.left= Math.random() * innerWidth + 'px';
+         section.appendChild(createElement);
+         setTimeout(()=> {
+          createElement.remove()
+         },4000)
+         createElement1.style.width= size + 'px';
+         createElement1.style.height= size + 'px';
+         createElement1.style.left= Math.random() * innerWidth + 'px';
+         section.appendChild(createElement1);
+         setTimeout(()=> {
+          createElement1.remove()
+         },3000)
+    }
+    setInterval(createBubble,60)
+            </script>
+</body>
+</html>
